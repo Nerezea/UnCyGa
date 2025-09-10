@@ -91,14 +91,14 @@ cp src/main/resources/application.properties.example src/main/resources/applicat
 
 Windows (PowerShell):
 ```powershell
-$env:DB_URL="jdbc:postgresql://127.0.0.1:5432/UnCyGa"
-$env:DB_USER="postgres"
+$env:DB_URL="jdbc:postgresql://127.0.0.1:5432/test"
+$env:DB_USER="your_postgres_user"
 $env:DB_PASSWORD="your_local_password"
 ```
 
 ### 3) Database
 
-Create a database (e.g. `UnCyGa`) and ensure the configured user has permissions.
+Create a database (e.g. `test`) and ensure the configured user has permissions.
 
 ### 4) Run
 

@@ -34,8 +34,8 @@ public class MainScreen {
 
 	public Scene getScreen() {
 		//Label
-		Label teamHome = new Label("Abyssissa Moon");
-		Label teamAway = new Label("Kryptonite Esports");
+		Label teamHome = new Label("Unknown");
+		Label teamAway = new Label("Unknown");
 
 		// TextField
 		TextField text = new TextField();
@@ -68,10 +68,22 @@ public class MainScreen {
 		});
 
 		// Center Layout Content
+		Button matchdayButton = new Button("matchday");
 		Button matchingButton = new Button("matching");
+
+		HBox buttons = new HBox(10, matchingButton, matchdayButton);
+		buttons.setAlignment(Pos.CENTER);
+
 		matchingButton.setOnAction(e -> {
-			matching.matchday(Integer.parseInt(winsHome.getText()), Integer.parseInt(winsAway.getText()));
+			List<Teams> match = matching.matchingTeams();
+			teamHome.setText(match.get(0).getName());
+			teamAway.setText(match.get(1).getName());
 		});
+
+		matchdayButton.setOnAction(e -> {
+			matching.matchday(teamHome.getText(), Integer.parseInt(winsHome.getText()), teamAway.getText(), Integer.parseInt(winsAway.getText()));
+		});
+
 		winsHome.setMaxWidth(35);
 		winsAway.setMaxWidth(35);
 
@@ -85,7 +97,7 @@ public class MainScreen {
 
 		//Center Layout
 		VBox centerLayout = new VBox(20);
-		centerLayout.getChildren().addAll(matchingButton, homeAgainstAway);
+		centerLayout.getChildren().addAll(buttons, homeAgainstAway);
 		centerLayout.setAlignment(Pos.TOP_CENTER);
 
 		//Left Layout

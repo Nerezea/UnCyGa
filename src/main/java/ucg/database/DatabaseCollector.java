@@ -11,7 +11,7 @@ import ucg.repository.TeamsRepository;
 @Component
 public class DatabaseCollector {
 
-	private TeamsRepository teamRepository;
+	private final TeamsRepository teamRepository;
 
 	@Autowired
 	public DatabaseCollector(TeamsRepository teamRepository) {
