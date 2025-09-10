@@ -26,6 +26,10 @@ public class DatabaseCollector {
 		return teamRepository.findByNameLike(name);
 	}
 
+	public Teams getTeamById(Integer id) {
+		return teamRepository.findById(id);
+	}
+
 	public void saveTeam(String name) {
 		teamRepository.save(new Teams(name));
 	}

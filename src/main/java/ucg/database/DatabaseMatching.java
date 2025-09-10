@@ -19,8 +19,8 @@ public class DatabaseMatching {
 	}
 
 	public void matchday(Integer mapsWonHome, Integer mapsWonAway) {
-		Teams teamHome = collector.getTeamByName("Abyssissa Moon");
-		Teams teamAway = collector.getTeamByName("Kryptonite Esports");
+		Teams teamHome = collector.getTeamById(1);
+		Teams teamAway = collector.getTeamById(2);
 
 		if (mapsWonHome > mapsWonAway) {
 			teamHome.setGameswon(teamHome.getGameswon() + 1);

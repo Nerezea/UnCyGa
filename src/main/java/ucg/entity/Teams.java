@@ -1,15 +1,14 @@
 package ucg.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "teams")
 public class Teams {
 
 	@Id
+	@GeneratedValue
+	private Integer id;
 	@Column(name = "TeamName")
 	private String	name;
 	@Column(name = "Points")

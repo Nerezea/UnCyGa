@@ -12,6 +12,8 @@ public interface TeamsRepository
 
 	Teams findByNameLike(String name);
 
+	Teams findById(Integer id);
+
 	List<Teams> findAll();
 
 	void delete(Teams name);
