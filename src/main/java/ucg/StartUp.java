@@ -1,8 +1,6 @@
 package ucg;
 
-import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
-import java.sql.Connection;
 
 import javafx.application.Application;
 import org.slf4j.Logger;
@@ -22,7 +20,6 @@ public class StartUp implements CommandLineRunner {
 
     private final InitializeDatabase initializer;
     private final DatabaseCollector collector;
-    private final DataSource dataSource;
     private final ConfigurableApplicationContext applicationContext;
 
     public StartUp(
@@ -33,7 +30,6 @@ public class StartUp implements CommandLineRunner {
     ) {
         this.initializer = initializer;
         this.collector = collector;
-        this.dataSource = dataSource;
         this.applicationContext = applicationContext;
     }
 
@@ -51,14 +47,5 @@ public class StartUp implements CommandLineRunner {
 
         JavaFXApplication.setSpringContext(applicationContext);
         Application.launch(JavaFXApplication.class, args);
-    }
-
-    @PostConstruct
-    public void init() {
-        try (Connection connect = dataSource.getConnection()) {
-            logger.info("Connected to DB: {} as user {}", connect.getMetaData().getURL(), connect.getMetaData().getUserName());
-        } catch (Exception exception) {
-            logger.warn("DB connection check failed: {}", exception.getMessage());
-        }
     }
 }

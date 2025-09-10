@@ -37,12 +37,4 @@ public class DatabaseCollector {
 	public void deleteTeam(String name) {
 		teamRepository.delete(teamRepository.findByNameLike(name));
 	}
-
-	public void changeTeam(String name) {
-		Teams team = teamRepository.findByNameLike(name);
-		String oldName = team.getName();
-		System.out.println(oldName);
-		team.setName("KK");
-		teamRepository.save(team);
-	}
 }
