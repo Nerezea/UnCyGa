@@ -45,7 +45,10 @@ public class StartUp implements CommandLineRunner {
             initializer.initializeDatabase();
         }
 
+        /*
+        JavaFX an/aus
         JavaFXApplication.setSpringContext(applicationContext);
         Application.launch(JavaFXApplication.class, args);
+         */
     }
 }
