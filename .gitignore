@@ -1,0 +1,46 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Build artifacts
+/bin/
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# macOS Finder
+.DS_Store
+
+# Logs
+*.log
+
+# Temp
+*.tmp
+*.swp
+
+# Tooling
+.dbeaver/
+
+# Sensitive configurations (add if you have configs with secrets)
+src/main/resources/application.properties
+src/main/resources/hibernate.cfg.xml
