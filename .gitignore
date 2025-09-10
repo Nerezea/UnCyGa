@@ -43,7 +43,7 @@ out/
 
 # Sensitive configurations (add if you have configs with secrets)
 src/main/resources/application.properties
-src/main/resources/hibernate.cfg.xml
+src/main/resources/application.yml
 
 #Sql
 src/main/resources/sql/*
