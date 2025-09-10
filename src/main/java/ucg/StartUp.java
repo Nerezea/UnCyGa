@@ -45,23 +45,20 @@ public class StartUp implements CommandLineRunner {
     public void run(String... args) throws Exception {
         try {
             collector.collectData();
-        } catch (Exception e) {
+        } catch (Exception exception) {
             initializer.initializeDatabase();
         }
 
-        // Den bereits laufenden Spring-Context an die JavaFX-App übergeben
         JavaFXApplication.setSpringContext(applicationContext);
-
-        // JavaFX starten (ohne erneut Spring zu booten)
         Application.launch(JavaFXApplication.class, args);
     }
 
     @PostConstruct
     public void init() {
-        try (Connection c = dataSource.getConnection()) {
-            logger.info("Connected to DB: {} as user {}", c.getMetaData().getURL(), c.getMetaData().getUserName());
-        } catch (Exception e) {
-            logger.warn("DB connection check failed: {}", e.getMessage());
+        try (Connection connect = dataSource.getConnection()) {
+            logger.info("Connected to DB: {} as user {}", connect.getMetaData().getURL(), connect.getMetaData().getUserName());
+        } catch (Exception exception) {
+            logger.warn("DB connection check failed: {}", exception.getMessage());
         }
     }
 }
