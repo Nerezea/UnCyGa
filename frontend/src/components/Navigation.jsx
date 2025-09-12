@@ -1,7 +1,10 @@
 import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
-  const items = [{ name: 'Home', to: '/', id: 1 }];
+  const items = [
+    { name: 'Home', to: '/', id: 1 },
+    { name: 'Leaderboard', to: '/leaderboard', id: 2 },
+  ];
   return (
     <nav>
       <ul>
