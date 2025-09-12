@@ -22,12 +22,7 @@ public class StartUp implements CommandLineRunner {
     private final DatabaseCollector collector;
     private final ConfigurableApplicationContext applicationContext;
 
-    public StartUp(
-            InitializeDatabase initializer,
-            DatabaseCollector collector,
-            DataSource dataSource,
-            ConfigurableApplicationContext applicationContext
-    ) {
+    public StartUp(InitializeDatabase initializer, DatabaseCollector collector, DataSource dataSource, ConfigurableApplicationContext applicationContext) {
         this.initializer = initializer;
         this.collector = collector;
         this.applicationContext = applicationContext;
@@ -47,9 +42,9 @@ public class StartUp implements CommandLineRunner {
 
         /*
         JavaFX an/aus
+
         JavaFXApplication.setSpringContext(applicationContext);
         Application.launch(JavaFXApplication.class, args);
-         */
-
+        */
     }
 }
