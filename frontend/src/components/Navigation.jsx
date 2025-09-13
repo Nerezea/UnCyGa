@@ -4,6 +4,7 @@ const Navigation = () => {
   const items = [
     { name: 'Home', to: '/', id: 1 },
     { name: 'Leaderboard', to: '/leaderboard', id: 2 },
+    { name: 'Administration', to: '/administration', id: 3 },
   ];
   return (
     <nav>

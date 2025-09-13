@@ -18,5 +18,5 @@ public interface TeamsRepository
 
 	void delete(Teams name);
 
-	void save(Teams name);
+    Teams save(Teams name);
 }

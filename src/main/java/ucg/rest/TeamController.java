@@ -1,13 +1,14 @@
 package ucg.rest;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import ucg.dto.TeamsDTO;
 import ucg.entity.Teams;
 import ucg.mapper.TeamsMapper;
 import ucg.repository.TeamsRepository;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -23,4 +24,21 @@ public class TeamController {
     public List<TeamsDTO> allTeams() {
         return repository.findAll().stream().map(TeamsMapper::toDto).toList();
     }
+
+    @PostMapping
+    public ResponseEntity<TeamsDTO> createTeam(@RequestBody CreateTeamRequest body) {
+        Teams toSave = new Teams(body.getName());
+        Teams saved = repository.save(toSave);
+
+        TeamsDTO dto = TeamsMapper.toDto(saved);
+
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(saved.getId())
+                .toUri();
+
+        return ResponseEntity.created(location).body(dto);
+    }
+
 }
