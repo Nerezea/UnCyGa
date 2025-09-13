@@ -42,9 +42,10 @@ public class StartUp implements CommandLineRunner {
 
         /*
         JavaFX an/aus
+         */
 
         JavaFXApplication.setSpringContext(applicationContext);
         Application.launch(JavaFXApplication.class, args);
-        */
+
     }
 }
