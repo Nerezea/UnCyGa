@@ -41,4 +41,13 @@ public class TeamController {
         return ResponseEntity.created(location).body(dto);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteTeam(@PathVariable Integer id) {
+        if (!repository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
+        repository.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

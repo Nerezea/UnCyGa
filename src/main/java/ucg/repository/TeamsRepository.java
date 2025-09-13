@@ -18,5 +18,9 @@ public interface TeamsRepository
 
 	void delete(Teams name);
 
+    void deleteById(Integer id);
+
     Teams save(Teams name);
+
+    Boolean existsById(Integer id);
 }
